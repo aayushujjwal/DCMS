@@ -1,0 +1,53 @@
+import React, { useState } from 'react';
+import {useNavigate, useParams} from "react-router-dom";
+import axios from 'axios';
+
+function UpdateMTypePage() {
+    const [level, setLevel] = useState('')
+    const [price, setPrice] = useState('')
+    const [duration, setDuration] = useState('')
+    const {id} = useParams();
+    const navigate = useNavigate();
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        console.log(id)
+        axios.put(`http://localhost:8081/updatemtype/${id}`, { level, price, duration})
+        .then(res => {
+            console.log(res);
+            navigate('/mtype')
+        }) .catch(err => console.log(err));
+    }
+        
+
+  return (
+    <div className='d-flex vh-100 bg-primary justify-content-center align-items-center'>
+        <div className='w-50 bg-white rounded p-3'>
+            <form onSubmit={handleSubmit}>
+                <h2>Update Membership Level</h2>
+                <div className='mb-2'>
+                    <label htmlFor="">Level</label>
+                    <input type='number' placeholder='Enter Level' className='form-control'
+                    onChange={e => setLevel(e.target.value)}
+                    />
+                </div>
+                <div className='mb-2'>
+                    <label htmlFor="">Price (in Rupees)</label>
+                    <input type='number' placeholder='Enter Price' className='form-control' 
+                    onChange = {e => setPrice(e.target.value)}
+                    />
+                </div>
+                <div className='mb-2'>
+                    <label htmlFor="">Duration (in months)</label>
+                    <input type='number' placeholder='Enter Duration' className='form-control' 
+                    onChange = {e => setDuration(e.target.value)} 
+                    />
+                </div>  
+                <button className='btn btn-success'>Update</button>           
+            </form>
+            </div>   
+    </div>            
+  )
+}
+
+export default UpdateMTypePage;

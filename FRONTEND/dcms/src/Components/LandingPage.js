@@ -1,28 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Styles/LandingPage.css';
-
+import Header from './Header';
+import Footer from './Footer';
+import Gallery from './LandingPageComponents/Gallery';
+import Locations from './LandingPageComponents/Locations';
+import AboutUs from './LandingPageComponents/AboutUs';
 const LandingPage = () => {
   return (
-    <div className="landing-page">
-      <nav className="navbar">
-        <ul className="nav-links">
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/events">Events</Link>
-          </li>
-        </ul>
-      </nav>
-      <div className="content">
-        <h1>Welcome to Dance Club Management System</h1>
-        <p>Explore our club, login to manage events, and more!</p>
-      </div>
-    </div>
+    <>
+    <Header></Header>
+    
+    <AboutUs></AboutUs>
+    <div className="gradient-divider"></div>
+    <Locations></Locations>
+    <div className="gradient-divider"></div>
+    <Gallery></Gallery>
+    <Footer></Footer>
+    </>
   );
 };
 

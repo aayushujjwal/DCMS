@@ -1,0 +1,41 @@
+/* PhotoGallery.css */
+
+.photo-gallery {
+    /* background-image: url("D:\\EDUC\\2ndYEAR\\Programming\\4th sem\\DanceClubManagementSystem\\FRONTEND\\dcms\\src\\Assets\\2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: center center;
+  background-attachment: fixed; */
+  /* background-color: #6672ea; */
+  /* background: linear-gradient(to bottom, #6672ea,#4cb0e8); */
+  margin-bottom: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 100px;
+  }
+  
+  .gallery-container {
+    color: #000000;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .image-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.1s;
+  }
+  
+  .image-grid img:hover {
+    transform: scale(1.07);
+  }
+  

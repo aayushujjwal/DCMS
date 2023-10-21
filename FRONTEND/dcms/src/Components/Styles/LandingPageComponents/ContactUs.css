@@ -1,0 +1,11 @@
+.outer {
+    background-image: url("D:\EDUC\2ndYEAR\Programming\4th sem\DanceClubManagementSystem\FRONTEND\dcms\src\Assets\3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center center;
+    background-attachment: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; 
+  }

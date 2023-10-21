@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Validation from "./LoginValidation";
 import axios from 'axios';
+import './Styles/LoginSignupPage.css';
 
 function LoginPage() {
   const [values, setValues] = useState({
@@ -20,11 +21,12 @@ function LoginPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setErrors(Validation(values));
-    if(errors.email === "" && errors.password === ""){
-      axios.post('http://localhost:8081/login', values)
+    if(errors.email !== "" && errors.password !== ""){
+      const details = {"email": values.email[0], "password": values.password[0]} 
+      axios.post('http://localhost:8081/login', details)
       .then(res => {
         if(res.data === "Success"){
-          navigate('./');
+          navigate('/events');
         } else {
           alert("No record exists");
         }
@@ -34,7 +36,7 @@ function LoginPage() {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center bg-primary vh-100">
+    <div className="outer">
       <div className="bg-white p-3 rounded w-25">
         <h2>Log IN</h2>
         <form action="" onSubmit={handleSubmit}>
